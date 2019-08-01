@@ -166,31 +166,21 @@ namespace grand_circus.Controllers
             return _context.UserCourses.Any(e => e.UserCoursesId == id);
         }
 
-        public IActionResult ViewCoursesByUserId()
-        {
-            // view with search field (userId) and button
 
-            return View();
+        
+        public IActionResult SearchCoursesByUserId(int arg)
+        {
+
+            _session.SetInt32("currentUserId", arg);
+
+            var grandCircusContext = _context.UserCourses.Where(x => x.UserId == _session.GetInt32("userId"));
+            return View("DisplayCoursesByUserId", grandCircusContext.ToList());
+
         }
 
-        [HttpPost]
-        public IActionResult ViewCoursesByUserId(UserCourses userCourses)
+        public IActionResult DisplayCoursesByUserId(List<UserCourses> arg)
         {
-            //select * from userCourses where userCourses.userId = userId
-            
-
-            if (ModelState.IsValid)
-            {
-                var grandCircusContext = _context.UserCourses.Where(x => x.UserId == userCourses.UserId).ToList();
-                return RedirectToAction("DisplayCoursesByUserId", grandCircusContext);
-            }
-            else
-            {
-                return View();                  
-            }
-
-            //return View();
-            //.Where(u => u.UserId == userCourses.UserId).ToList()
+            return View(arg);
         }
     }
 }

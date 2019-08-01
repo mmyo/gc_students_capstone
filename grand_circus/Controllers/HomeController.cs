@@ -45,12 +45,10 @@ namespace grand_circus.Controllers
 
         public IActionResult SetUserSession(int id)
         {
-            //var currentUser = _context.User.Find(id);
-            //test
 
             _session.SetInt32("userId", id);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("SearchCoursesByUserId", "UserCourses", new { arg = _session.GetInt32("userId") });
         }
     }
 }

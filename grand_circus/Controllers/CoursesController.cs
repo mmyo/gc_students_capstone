@@ -6,16 +6,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using grand_circus.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace grand_circus.Controllers
 {
     public class CoursesController : Controller
     {
         private readonly GrandCircusContext _context;
+        private readonly ISession _session;
 
-        public CoursesController(GrandCircusContext context)
+        public CoursesController(GrandCircusContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _session = httpContextAccessor.HttpContext.Session;
         }
 
         // GET: Courses
@@ -148,5 +151,7 @@ namespace grand_circus.Controllers
         {
             return _context.Course.Any(e => e.CourseId == id);
         }
+
+
     }
 }
