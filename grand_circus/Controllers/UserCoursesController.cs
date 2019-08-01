@@ -174,6 +174,11 @@ namespace grand_circus.Controllers
             _session.SetInt32("currentUserId", arg);
 
             var grandCircusContext = _context.UserCourses.Where(x => x.UserId == _session.GetInt32("userId"));
+
+            var user = _context.User.FirstOrDefault(x => x.UserId == arg) as User;
+
+            ViewData["userFirstName"] = user.FirstName;
+
             return View("DisplayCoursesByUserId", grandCircusContext.ToList());
 
         }

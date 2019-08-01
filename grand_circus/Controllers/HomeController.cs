@@ -48,7 +48,18 @@ namespace grand_circus.Controllers
 
             _session.SetInt32("userId", id);
 
-            return RedirectToAction("SearchCoursesByUserId", "UserCourses", new { arg = _session.GetInt32("userId") });
+            var loggedInUser = _context.User.Find(id);
+
+            if (loggedInUser.Type == "Student")
+            {
+                return RedirectToAction("SearchCoursesByUserId", "UserCourses", new { arg = _session.GetInt32("userId") });
+
+            }
+            else
+            {
+                return View("AdminMenu");
+            }
+
         }
 
         public IActionResult StudentMenu()
@@ -58,7 +69,10 @@ namespace grand_circus.Controllers
 
         public IActionResult AdminMenu()
         {
+
             return View();
+
+
         }
     }
 }

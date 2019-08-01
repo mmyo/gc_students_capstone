@@ -1,37 +1,12 @@
-﻿@*@model UserCourses
-    @{
-        ViewData["Title"] = "DisplayCoursesByUserId";
-    }
-
-    <h1>DisplayCoursesByUserId</h1>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.UserId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Course.CourseId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Semester)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Grade)
-            </td>
-        </tr>
-    }*@
+﻿
 @model IEnumerable<grand_circus.Models.UserCourses>
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h4>@ViewData["userFirstName"]'s Courses:</h4>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
