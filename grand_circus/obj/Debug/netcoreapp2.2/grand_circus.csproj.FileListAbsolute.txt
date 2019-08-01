@@ -94,3 +94,5 @@ C:\Users\myo\OneDrive - KNEX\Documents\grandcircus\gc_students_capstone\grand_ci
 C:\Users\myo\OneDrive - KNEX\Documents\grandcircus\gc_students_capstone\grand_circus\obj\Debug\netcoreapp2.2\grand_circus.dll
 C:\Users\myo\OneDrive - KNEX\Documents\grandcircus\gc_students_capstone\grand_circus\obj\Debug\netcoreapp2.2\grand_circus.pdb
 C:\Users\myo\OneDrive - KNEX\Documents\grandcircus\gc_students_capstone\grand_circus\obj\Debug\netcoreapp2.2\grand_circus.csproj.CopyComplete
+C:\Users\myo\OneDrive - KNEX\Documents\grandcircus\gc_students_capstone\grand_circus\obj\Debug\netcoreapp2.2\Razor\Views\Home\StudentMenu.g.cshtml.cs
+C:\Users\myo\OneDrive - KNEX\Documents\grandcircus\gc_students_capstone\grand_circus\obj\Debug\netcoreapp2.2\Razor\Views\Home\AdminMenu.g.cshtml.cs

@@ -50,5 +50,15 @@ namespace grand_circus.Controllers
 
             return RedirectToAction("SearchCoursesByUserId", "UserCourses", new { arg = _session.GetInt32("userId") });
         }
+
+        public IActionResult StudentMenu()
+        {
+            return View();
+        }
+
+        public IActionResult AdminMenu()
+        {
+            return View();
+        }
     }
 }

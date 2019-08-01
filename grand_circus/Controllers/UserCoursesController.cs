@@ -178,9 +178,9 @@ namespace grand_circus.Controllers
 
         }
 
-        public IActionResult DisplayCoursesByUserId(List<UserCourses> arg)
+        public IActionResult DisplayCoursesByUserId(List<UserCourses> courseList)
         {
-            return View(arg);
+            return View(courseList);
         }
     }
 }
