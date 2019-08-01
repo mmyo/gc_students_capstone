@@ -12960,11 +12960,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\myo\\OneDrive - KNEX\\Documents\\grandcircus\\capstone\\Grand_Circus\\grand_circus\\grand_circus\\grand_circus.csproj",
+      "projectUniqueName": "C:\\Users\\myo\\OneDrive - KNEX\\Documents\\grandcircus\\gc_students_capstone\\grand_circus\\grand_circus.csproj",
       "projectName": "grand_circus",
-      "projectPath": "C:\\Users\\myo\\OneDrive - KNEX\\Documents\\grandcircus\\capstone\\Grand_Circus\\grand_circus\\grand_circus\\grand_circus.csproj",
+      "projectPath": "C:\\Users\\myo\\OneDrive - KNEX\\Documents\\grandcircus\\gc_students_capstone\\grand_circus\\grand_circus.csproj",
       "packagesPath": "C:\\Users\\myo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\myo\\OneDrive - KNEX\\Documents\\grandcircus\\capstone\\Grand_Circus\\grand_circus\\grand_circus\\obj\\",
+      "outputPath": "C:\\Users\\myo\\OneDrive - KNEX\\Documents\\grandcircus\\gc_students_capstone\\grand_circus\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

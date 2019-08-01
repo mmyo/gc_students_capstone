@@ -46,6 +46,7 @@ namespace grand_circus.Controllers
         public IActionResult SetUserSession(int id)
         {
             //var currentUser = _context.User.Find(id);
+            //test
 
             _session.SetInt32("userId", id);
 
