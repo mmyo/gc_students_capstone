@@ -18,5 +18,7 @@ namespace grand_circus.Models
         public DbSet<User> User { get; set; }
 
         public DbSet<UserCourses> UserCourses { get; set; }
+
+        
     }
 }

@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using grand_circus.Models;
 
 namespace grand_circus.Migrations
 {
     [DbContext(typeof(GrandCircusContext))]
-    partial class GrandCircusContextModelSnapshot : ModelSnapshot
+    [Migration("20190805005026_ChangeGradeToDouble")]
+    partial class ChangeGradeToDouble
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

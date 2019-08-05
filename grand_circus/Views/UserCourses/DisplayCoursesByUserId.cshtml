@@ -1,5 +1,4 @@
-﻿
-@model IEnumerable<grand_circus.Models.UserCourses>
+﻿@model IEnumerable<grand_circus.Models.ViewCourses>
 @{
     ViewData["Title"] = "Index";
 }
@@ -11,10 +10,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.UserId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CourseId)
+                @Html.DisplayNameFor(model => model.CourseName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Semester)
@@ -22,28 +18,46 @@
             <th>
                 @Html.DisplayNameFor(model => model.Grade)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Max)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Min)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Average)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CourseId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Semester)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Grade)
-                </td>
-
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Semester)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Max)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Min)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Average)
+            </td>
+        </tr>
         }
     </tbody>
 </table>
+
+<h4>
+    <a asp-action="AddCourse">Add Course</a>
+</h4>
 

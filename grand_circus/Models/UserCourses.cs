@@ -16,7 +16,7 @@ namespace grand_circus.Models
         public int CourseId { get; set; }
         public Course Course { get; set; }
         public string Semester { get; set; }
-        public string Grade { get; set; }
+        public double Grade { get; set; }
 
     }
 }

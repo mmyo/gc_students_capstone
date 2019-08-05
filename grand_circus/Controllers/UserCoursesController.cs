@@ -166,26 +166,73 @@ namespace grand_circus.Controllers
             return _context.UserCourses.Any(e => e.UserCoursesId == id);
         }
 
-
-        
         public IActionResult SearchCoursesByUserId(int arg)
         {
-
             _session.SetInt32("currentUserId", arg);
 
-            var grandCircusContext = _context.UserCourses.Where(x => x.UserId == _session.GetInt32("userId"));
+            var userId = _session.GetInt32("currentUserId");
+            var grandCircusContext = _context.UserCourses.Include(u => u.Course).Where(x => x.UserId == _session.GetInt32("userId"));
+
+            var viewCourseList = new List<ViewCourses>();
+            foreach (var course in grandCircusContext)
+            {
+                string courseName = course.Course.Name;
+                string semester = course.Semester;
+                double grade = course.Grade;
+                double max = 0;
+                double min = 4;
+                double total = 0;
+                double average;
+
+                var coursesToQuery = _context.UserCourses.Where(u => u.Course.Name == courseName);
+                foreach (var c in coursesToQuery)
+                {
+                    if (max < c.Grade)
+                    {
+                        max = c.Grade;
+                    }
+                    if (min > c.Grade)
+                    {
+                        min = c.Grade;
+                    }
+                    total += c.Grade;
+                }
+
+                average = total / coursesToQuery.Count();
+
+                viewCourseList.Add(new ViewCourses(courseName, semester, grade, max, min, average));
+            }
+
+            var viewCourseContext = viewCourseList.AsQueryable();
 
             var user = _context.User.FirstOrDefault(x => x.UserId == arg) as User;
-
             ViewData["userFirstName"] = user.FirstName;
 
-            return View("DisplayCoursesByUserId", grandCircusContext.ToList());
-
+            return View("DisplayCoursesByUserId", viewCourseContext);
         }
 
         public IActionResult DisplayCoursesByUserId(List<UserCourses> courseList)
         {
             return View(courseList);
+        }
+
+        public async Task<IActionResult> AddCourse()
+        {
+            var userId = _session.GetInt32("currentUserId");
+            return View(await _context.Course.ToListAsync());
+        }
+
+        public IActionResult Enroll(int? id)
+        {
+            var userId = _session.GetInt32("currentUserId");
+            var userCourses = new UserCourses();
+            var course = _context.Course.Where(x => x.CourseId == id).FirstOrDefault();
+            userCourses.CourseId = course.CourseId;
+            userCourses.UserId = (int)userId;
+            userCourses.Semester = "Summer";
+            _context.UserCourses.Add(userCourses);
+            _context.SaveChanges();
+            return RedirectToAction("SearchCoursesByUserId", new { arg = userId });
         }
     }
 }

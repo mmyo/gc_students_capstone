@@ -41,7 +41,7 @@ namespace grand_circus
             services.AddHttpContextAccessor();
             services.AddDistributedMemoryCache();
 
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=GrandCircus;Trusted_Connection=True;ConnectRetryCount=0";
+            var connection = @"Server=LAPTOP-B8UC0TE1\SQLEXPRESS;Database=GrandCircus;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<GrandCircusContext>
                 (options => options.UseSqlServer(connection));
 

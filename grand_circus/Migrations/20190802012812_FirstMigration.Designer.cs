@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using grand_circus.Models;
 
 namespace grand_circus.Migrations
 {
     [DbContext(typeof(GrandCircusContext))]
-    partial class GrandCircusContextModelSnapshot : ModelSnapshot
+    [Migration("20190802012812_FirstMigration")]
+    partial class FirstMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -62,7 +64,7 @@ namespace grand_circus.Migrations
 
                     b.Property<int>("CourseId");
 
-                    b.Property<double>("Grade");
+                    b.Property<string>("Grade");
 
                     b.Property<string>("Semester");
 
